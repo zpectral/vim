@@ -8,9 +8,9 @@ if has('win32')
     set directory=$HOME/vimfiles/temp//
     set undodir=$HOME/vimfiles/temp/
 else
-    set backupdir=$HOME/.vim/temp/
-    set directory=$HOME/.vim/temp//
-    set undodir=$HOME/.vim/temp/
+    set backupdir=~/.vim/temp/
+    set directory=~/.vim/temp//
+    set undodir=~/.vim/temp/
 endif
 
 " set the runtime path to include Vundle and initialize
