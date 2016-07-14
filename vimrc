@@ -4,13 +4,13 @@ filetype off                  " required
 "Backup
 set backup
 if has('win32')
-    set backupdir=$HOME/vimfiles/temp//
+    set backupdir=$HOME/vimfiles/temp/
     set directory=$HOME/vimfiles/temp//
-    set undodir=$HOME/vimfiles/temp//
+    set undodir=$HOME/vimfiles/temp/
 else
-    set backupdir=$HOME/.vim/temp//
+    set backupdir=$HOME/.vim/temp/
     set directory=$HOME/.vim/temp//
-    set undodir=$HOME/.vim/temp//
+    set undodir=$HOME/.vim/temp/
 endif
 
 " set the runtime path to include Vundle and initialize
