@@ -1,14 +1,16 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+"Backup
+set backup
 if has('win32')
-    set backupdir=$HOME/vimfiles/backup,.
-    set directory=$HOME/vimfiles/temp//,.
-    set undodir=$HOME/vimfiles/undo,.
+    set backupdir=$HOME/vimfiles/temp//
+    set directory=$HOME/vimfiles/temp//
+    set undodir=$HOME/vimfiles/temp//
 else
-    set backupdir=$HOME/.vim/backup,.
-    set directory=$HOME/.vim/temp//,.
-    set undodir=$HOME/.vim/undo,.
+    set backupdir=$HOME/.vim/temp//
+    set directory=$HOME/.vim/temp//
+    set undodir=$HOME/.vim/temp//
 endif
 
 " set the runtime path to include Vundle and initialize
@@ -21,11 +23,6 @@ else
     set rtp+=~/.vim/bundle/Vundle.vim
     call vundle#begin()
 endif
-
-"Backup
-set backup
-set directory=$HOME/tmp//
-set backupdir=$HOME/tmp//
 
 
 " let Vundle manage Vundle, required
