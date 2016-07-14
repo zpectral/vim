@@ -1,11 +1,32 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+if has('win32')
+    set backupdir=$HOME/vimfiles/backup,.
+    set directory=$HOME/vimfiles/temp//,.
+    set undodir=$HOME/vimfiles/undo,.
+else
+    set backupdir=$HOME/.vim/backup,.
+    set directory=$HOME/.vim/temp//,.
+    set undodir=$HOME/.vim/undo,.
+endif
+
 " set the runtime path to include Vundle and initialize
-set rtp+=$HOME/vimfiles/bundle/Vundle.vim/ "rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin('$USERPROFILE/vimfiles/bundle/') "vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 " call vundle#begin('~/some/path/here')
+if has('win32')
+    set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
+    call vundle#begin('$HOME/vimfiles/bundle/') "vundle#begin()
+else
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
+endif
+
+"Backup
+set backup
+set directory=$HOME/tmp//
+set backupdir=$HOME/tmp//
+
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
@@ -184,10 +205,6 @@ colorscheme molokai
 " let g:colorscheme_switcher_exclude = ['default', 'test']
 let g:colorscheme_switcher_exclude_builtins = 1
 
-"Backup
-set backup
-set directory=$HOME/tmp//
-set backupdir=$HOME/tmp//
 
 "supertab
 let g:SuperTabMappingForward = '<c-tab>'
