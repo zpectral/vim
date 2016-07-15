@@ -59,7 +59,7 @@ Plugin 'shougo/unite.vim' " extensive file explorer needs to be set up
 Plugin 'vim-airline/vim-airline' " more info on bottom of editor
 Plugin 'raimondi/delimitmate' " autoclose brackets, parenthesis, etc.
 Plugin 'majutsushi/tagbar' " class outline viewer
-
+Plugin 'Valloric/YouCompleteMe' "autocomplete plugin
 Plugin 'scrooloose/syntastic' " syntax checker
 Plugin 'mattn/emmet-vim' " fast coding for html
 Plugin 'junegunn/goyo.vim' " fullscreen clean mode
@@ -73,7 +73,6 @@ Plugin 'xolox/vim-misc'
 Plugin 'tomasr/molokai'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'kristijanhusak/vim-hybrid-material'
-Plugin 'rakr/vim-rakr-light'
 Plugin 'ehartc/Spink'
 Plugin 'vim-scripts/greenvision'
 
