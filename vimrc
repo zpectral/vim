@@ -1,29 +1,17 @@
 set nocompatible              " be iMproved, required
+"
 filetype off                  " required
-
-"Backup
-set backup
-if has('win32')
-    set backupdir=$HOME/vimfiles/temp/
-    set directory=$HOME/vimfiles/temp//
-    set undodir=$HOME/vimfiles/temp/
-else
-    set backupdir=~/.vim/temp/
-    set directory=~/.vim/temp//
-    set undodir=~/.vim/temp/
-endif
-
 " set the runtime path to include Vundle and initialize
 " alternatively, pass a path where Vundle should install plugins
 " call vundle#begin('~/some/path/here')
+"
 if has('win32')
     set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
-    call vundle#begin('$HOME/vimfiles/bundle/') "vundle#begin()
+    call vundle#begin('$HOME/vimfiles/bundle/')
 else
     set rtp+=~/.vim/bundle/Vundle.vim
     call vundle#begin()
 endif
-
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
@@ -91,6 +79,17 @@ filetype plugin on
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+"Backup
+set backup
+if has("win32")
+    set backupdir=$HOME/vimfiles/temp/
+    set directory=$HOME/vimfiles/temp//
+    set undodir=$HOME/vimfiles/temp/
+else
+    set backupdir=~/.vim/temp/
+    set directory=~/.vim/temp//
+    set undodir=~/.vim/temp/
+endif
 
 source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
@@ -108,7 +107,7 @@ let mapleader = ","
 
 "General options
 set history=1000
-nmap <leader>w :w!<cr>
+nmap <leader>w :w! ++ff=unix<cr>
 
 "Run in browser
 nnoremap <silent> <leader>v :!start "C:\Program Files (x86)\Mozilla Firefox\firefox.exe" file://%:p<CR>
