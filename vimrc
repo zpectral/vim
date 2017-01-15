@@ -6,65 +6,77 @@ filetype off                  " required
 " call vundle#begin('~/some/path/here')
 "
 if has('win32')
-    set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
-    call vundle#begin('$HOME/vimfiles/bundle/')
+    set rtp+=$HOME/vimfiles/autoload/vim-plug.vim/
+    call plug#begin('$HOME/vimfiles/plugged/')
 else
-    set rtp+=~/.vim/bundle/Vundle.vim
-    call vundle#begin()
+    set rtp+=~/.vim/autoload/vim-plug.vim
+    call plug#begin()
 endif
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" Make sure you use single quotes
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-" Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-" Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
-" the sparkup vim script is in a subdirectory of this repo called vim.
-" pass the path to set the runtimepath properly.
-" plugin 'rstacruz/sparkup', {'rtp': 'vim'}
-" avoid a name conflict with l9
-" plugin 'user/l9', {'name': 'newl9'}
+" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+" Plug 'junegunn/vim-easy-align'
+"
+" Any valid git URL is allowed
+" Plug 'https://github.com/junegunn/vim-github-dashboard.git'
+"
+" Group dependencies, vim-snippets depends on ultisnips
+" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+"
+" On-demand loading
+" Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+" Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+"
+" Using a non-master branch
+" Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+"
+" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
+" Plug 'fatih/vim-go', { 'tag': '*' }
+"
+" Plugin options
+" Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+"
+" Plugin outside ~/.vim/plugged with post-update hook
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"
+" Unmanaged plugin (manually installed and updated)
+" Plug '~/my-prototype-plugin'
 
 "my plugins
-Plugin 'tpope/vim-repeat' " more functionallity to the '.' command
-Plugin 'tpope/vim-fugitive' " git commands for vim
-Plugin 'tpope/vim-surround' " shortcuts to easily manipulate surrounded code
-Plugin 'tpope/vim-unimpaired' " more shortcuts for moving :help unimpaired
-Plugin 'tpope/vim-abolish' " :subvert/child{,ren}/adult{,s}/g
-Plugin 'tpope/vim-commentary' " helps with commenting
+Plug 'tpope/vim-repeat' " more functionallity to the '.' command
+Plug 'tpope/vim-fugitive' " git commands for vim
+Plug 'tpope/vim-surround' " shortcuts to easily manipulate surrounded code
+Plug 'tpope/vim-unimpaired' " more shortcuts for moving :help unimpaired
+Plug 'tpope/vim-abolish' " :subvert/child{,ren}/adult{,s}/g
+Plug 'tpope/vim-commentary' " helps with commenting
 "alternative commenter plugin 'scrooloose/nerdcommenter'
-Plugin 'tpope/vim-speeddating' " date manipulation <c-a> and <c-x>
-Plugin 'easymotion/vim-easymotion' " changes vim cursor movement (read more about it)
-Plugin 'ervandew/supertab' " use tab for completion
-Plugin 'shougo/unite.vim' " extensive file explorer needs to be set up
-Plugin 'vim-airline/vim-airline' " more info on bottom of editor
-Plugin 'raimondi/delimitmate' " autoclose brackets, parenthesis, etc.
-Plugin 'majutsushi/tagbar' " class outline viewer
-Plugin 'scrooloose/syntastic' " syntax checker
-Plugin 'mattn/emmet-vim' " fast coding for html
-Plugin 'junegunn/goyo.vim' " fullscreen clean mode
+Plug 'tpope/vim-speeddating' " date manipulation <c-a> and <c-x>
+Plug 'easymotion/vim-easymotion' " changes vim cursor movement (read more about it)
+Plug 'ervandew/supertab' " use tab for completion
+Plug 'shougo/unite.vim' " extensive file explorer needs to be set up
+Plug 'vim-airline/vim-airline' " more info on bottom of editor
+Plug 'raimondi/delimitmate' " autoclose brackets, parenthesis, etc.
+Plug 'majutsushi/tagbar' " class outline viewer
+Plug 'scrooloose/syntastic' " syntax checker
+Plug 'mattn/emmet-vim' " fast coding for html
+Plug 'junegunn/goyo.vim' " fullscreen clean mode
+Plug 'ervandew/supertab' " autocomplete with tab
 
 "all programming languages bundle, must test
-Plugin 'sheerun/vim-polyglot'
-Plugin 'shutnik/jshint2.vim' " javascript bug check
+Plug 'sheerun/vim-polyglot'
+Plug 'shutnik/jshint2.vim' " javascript bug check
 "color schemes
-Plugin 'xolox/vim-colorscheme-switcher' " colorscheme changer
-Plugin 'xolox/vim-misc'
-Plugin 'tomasr/molokai'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'kristijanhusak/vim-hybrid-material'
-Plugin 'ehartc/Spink'
-Plugin 'vim-scripts/greenvision'
+Plug 'xolox/vim-colorscheme-switcher' " colorscheme changer
+Plug 'xolox/vim-misc'
+Plug 'tomasr/molokai'
+Plug 'altercation/vim-colors-solarized'
+Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'ehartc/Spink'
+Plug 'vim-scripts/greenvision'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()            " required
 "filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 filetype plugin on
@@ -100,13 +112,15 @@ let jshint2_command = 'C:\Users\zpectral\AppData\Roaming\npm\jshint'
 "GUI options
 set guioptions=e
 set lines=999 columns=90
+set belloff=all
 
 "mapleader
 let mapleader = ","
 
 "General options
 set history=1000
-nmap <leader>w :w! ++ff=unix<cr>
+nmap <leader>w :w!<cr>
+nmap <leader>uw :w! ++ff=unix<cr>
 
 "Run in browser
 nnoremap <silent> <leader>v :!start "C:\Program Files (x86)\Mozilla Firefox\firefox.exe" file://%:p<CR>
@@ -218,7 +232,7 @@ nnoremap <silent> <F5> :TagbarToggle<CR>
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
